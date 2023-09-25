@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import CalendarHeatmap from './CalendarHeatmap';
-import dummydata from './dummydata.json';
 
 const App = () => {
   const [handle, setHandle] = useState("");
-  const [selectedYear, setSelectedYear] = useState("2019");
-  const [selectedMonth, setSelectedMonth] = useState("01");
+  const [selectedYear, setSelectedYear] = useState("");
+  const [selectedMonth, setSelectedMonth] = useState("");
   const submissionData = [];
 
   useEffect(() => {

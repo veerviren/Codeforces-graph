@@ -4,6 +4,7 @@ import 'react-calendar-heatmap/dist/styles.css';
 
 const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
 
+    console.log("data: ", data);
     const filteredData = data.filter((value) => {
         const dateParts = value.date.split('-'); 
         // console.log("dateParts: ", dateParts);
