@@ -3,9 +3,15 @@ import CalendarHeatmap from './CalendarHeatmap';
 import dummydata from './dummydata.json';
 
 const App = () => {
-  // Define initial values for selectedMonth and selectedYear
-  const [selectedMonth, setSelectedMonth] = useState('01'); // January
-  const [selectedYear, setSelectedYear] = useState('2019');
+
+  //fetch data from the url and set the data to the state url(https://codeforces-graph.vercel.app/?handle=$handle&year=$currYear)
+  
+  const [handle, setHandle] = useState("");
+  const [selectedYear, setSelectedYear] = useState("2019");
+  const [selectedMonth, setSelectedMonth] = useState("01");
+  
+
+
 
   // Function to handle changes in the selected month
   const handleMonthChange = (e) => {
@@ -18,29 +24,11 @@ const App = () => {
   };
 
   const constSize = {
-    width: '200px',
+    width: '400px',
   }
 
   return (
     <div className="App">
-      <div>
-        <label>Select Month:</label>
-        <select value={selectedMonth} onChange={handleMonthChange}>
-          <option value="01">January</option>
-          <option value="02">February</option>
-          <option value="03">March</option>
-          <option value="04">April</option>
-          <option value="05">May</option>
-        </select>
-      </div>
-      <div>
-        <label>Select Year:</label>
-        <select value={selectedYear} onChange={handleYearChange}>
-          <option value="2023">2023</option>
-          <option value="2024">2024</option>
-          <option value="2019">2019</option>
-        </select>
-      </div>
       <div>
         <CalendarHeatmap
           data={dummydata}
