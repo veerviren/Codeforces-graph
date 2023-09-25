@@ -6,7 +6,7 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
 
     const filteredData = data.filter((value) => {
         const dateParts = value.date.split('-'); 
-        console.log("dateParts: ", dateParts);
+        // console.log("dateParts: ", dateParts);
         const year = parseInt(dateParts[0], 10); 
         const month = parseInt(dateParts[1], 10);
         return year == selectedYear && month == selectedMonth;
@@ -14,7 +14,7 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
 
     const inlineCSS = `
         .color-empty {
-            fill: white;
+            fill: #eeeeee;
         }
         .color-scale-1 {
             fill: #d6e685;
@@ -34,8 +34,8 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
     console.log("selectedYear: ", selectedYear);
     console.log("filteredData: ", filteredData);
     return (
-        <div className="calendar-heatmap" style={{"width":"200px"}}>
-            <style>{inlineCSS}</style> {/* Inline CSS */}
+        <div className="calendar-heatmap" style={{"width":"300px", "background":"grey"}}>
+            <style>{inlineCSS}</style> 
             <ReactCalendarHeatmap
                 startDate={new Date(selectedYear, selectedMonth - 1, 1)}
                 endDate={new Date(selectedYear, selectedMonth, 0)}
@@ -46,7 +46,7 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
                     }
                     return `color-scale-${value.count < 4 ? value.count : 4}`;
                 }}
-                onClick={(value) => alert(`Clicked on value with count: ${value.count}`)}
+                onClick={(value) => alert(`Clicked on value with count: ${value.count? value.count : 0}`)}
                 showWeekdayLabels={true}
                 showMonthLabels={false}
                 horizontal={false}
