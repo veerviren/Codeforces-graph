@@ -48,6 +48,7 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear, style }) => {
                 }}
                 onClick={(value) => alert(`Clicked on value with count: ${value.count}`)}
                 showWeekdayLabels={true}
+                showMonthLabels={false}
             />
         </div>
     );
