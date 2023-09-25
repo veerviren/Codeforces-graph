@@ -23,7 +23,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Calendar Heatmap Example</h1>
       <div>
         <label>Select Month:</label>
         <select value={selectedMonth} onChange={handleMonthChange}>
