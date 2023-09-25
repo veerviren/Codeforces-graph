@@ -9,23 +9,6 @@ const App = () => {
   const [handle, setHandle] = useState("");
   const [selectedYear, setSelectedYear] = useState("2019");
   const [selectedMonth, setSelectedMonth] = useState("01");
-  
-
-
-
-  // Function to handle changes in the selected month
-  const handleMonthChange = (e) => {
-    setSelectedMonth(e.target.value);
-  };
-
-  // Function to handle changes in the selected year
-  const handleYearChange = (e) => {
-    setSelectedYear(e.target.value);
-  };
-
-  const constSize = {
-    width: '400px',
-  }
 
   return (
     <div className="App">
@@ -34,7 +17,6 @@ const App = () => {
           data={dummydata}
           selectedMonth={selectedMonth}
           selectedYear={selectedYear}
-          style={constSize}
         />
       </div>
     </div>
