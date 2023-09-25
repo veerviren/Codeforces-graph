@@ -9,6 +9,8 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
         // console.log("dateParts: ", dateParts);
         const year = parseInt(dateParts[0], 10); 
         const month = parseInt(dateParts[1], 10);
+        // console.log("year: ", year);
+        // console.log("month: ", month);
         return year == selectedYear && month == selectedMonth;
     });
 
@@ -29,7 +31,6 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
             fill: #1e6823;
         }
     `;
-    console.log("data: ", data);
     console.log("selectedMonth: ", selectedMonth);
     console.log("selectedYear: ", selectedYear);
     console.log("filteredData: ", filteredData);
