@@ -72,10 +72,12 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
                 />
             </div>
             
-            <div style={{"width":"100px"}}>
+            <div style={{"width":"100px", "display":'flex', "justifyContent":"center", "alignItems":'center'}}>
+                <div>
                 <h5 style={testStyle}>Selected cube</h5>
                 <h6 style={testStyle}>date: {selectedDate}</h6>
-                <h6 style={testStyle}>count: {selectedCount}</h6>
+                    <h6 style={testStyle}>count: {selectedCount}</h6>
+                </div>
             </div>
         </div>
     );
