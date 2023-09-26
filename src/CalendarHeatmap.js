@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactCalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 
@@ -32,11 +32,22 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
             fill: #1e6823;
         }
     `;
+
+    // let selectedDate = "";
+    // let selectedCount = "";
+
+    const [selectedDate, setSelectedDate] = useState("");
+    const [selectedCount, setSelectedCount] = useState("");
+
+    const testStyle = {   
+        "margin": "0px",
+        "padding": "0px",
+    };
     console.log("selectedMonth: ", selectedMonth);
     console.log("selectedYear: ", selectedYear);
     console.log("filteredData: ", filteredData);
     return (
-        <div className="calendar-heatmap" style={{"width":"200px", "background":"grey"}}>
+        <div className="calendar-heatmap" style={{"width":"200px", display:"flex"}}>
             <style>{inlineCSS}</style> 
             <ReactCalendarHeatmap
                 startDate={new Date(selectedYear, selectedMonth - 1, 1)}
@@ -48,11 +59,21 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
                     }
                     return `color-scale-${value.count < 4 ? value.count : 4}`;
                 }}
-                onClick={(value) => alert(`Clicked on value with count: ${value.count? value.count : 0}`)}
+                onClick={(value) => {
+                    if(value){
+                        setSelectedDate(value.date);
+                        setSelectedCount(value.count);
+                    }
+                }}
                 showWeekdayLabels={true}
                 showMonthLabels={false}
                 horizontal={false}
             />
+            <div style={{"width":"200px"}}>
+                <h6 style={testStyle}>Selected cube</h6>
+                <h6 style={testStyle}>date: {selectedDate}</h6>
+                <h6 style={testStyle}>count: {selectedCount}</h6>
+            </div>
         </div>
     );
 };

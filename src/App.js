@@ -109,7 +109,7 @@ const App = () => {
   // console.log("selectedYear: ", selectedYear);
 
   return (
-    <div className="App">
+    <div className="App" style={{ "background": "grey"}}>
       <div>
         <CalendarHeatmap
           data={submissionDataList}
