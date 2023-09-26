@@ -49,7 +49,7 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
     return (
         <div className="calendar-heatmap" style={{"display":"flex"}}>
             <style>{inlineCSS}</style> 
-            <div style={{"width":"250px" }}>
+            <div style={{"width":"100px" }}>
             <ReactCalendarHeatmap
                 startDate={new Date(selectedYear, selectedMonth - 1, 1)}
                 endDate={new Date(selectedYear, selectedMonth, 0)}
