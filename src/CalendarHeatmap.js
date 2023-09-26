@@ -12,7 +12,7 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
         const month = parseInt(dateParts[1], 10);
         // console.log("year: ", year);
         // console.log("month: ", month);
-        return year == selectedYear && month == selectedMonth;
+        return year == selectedYear;
     });
 
     const inlineCSS = `
@@ -47,12 +47,11 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
     console.log("selectedYear: ", selectedYear);
     console.log("filteredData: ", filteredData);
     return (
-        <div className="calendar-heatmap" style={{"display":"flex"}}>
+        <div className="calendar-heatmap">
             <style>{inlineCSS}</style> 
-            <div style={{"width":"150px" }}>
             <ReactCalendarHeatmap
-                startDate={new Date(selectedYear, selectedMonth - 1, 1)}
-                endDate={new Date(selectedYear, selectedMonth, 0)}
+                startDate={new Date(`${selectedYear}-$01-01`)}
+                endDate={new Date(`${selectedYear}-$12-31`)}
                 values={filteredData}
                 classForValue={(value) => {
                     if (!value) {
@@ -67,18 +66,9 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
                     }
                 }}
                 showWeekdayLabels={true}
-                showMonthLabels={false}
-                horizontal={false}
+                showMonthLabels={true}
+                horizontal={true}
                 />
-            </div>
-            
-            <div style={{"width":"100px", "display":'flex', "justifyContent":"center", "alignItems":'center'}}>
-                <div>
-                <h5 style={testStyle}>Selected cube</h5>
-                <h6 style={testStyle}>date: {selectedDate}</h6>
-                    <h6 style={testStyle}>count: {selectedCount}</h6>
-                </div>
-            </div>
         </div>
     );
 };
