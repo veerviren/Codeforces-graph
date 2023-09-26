@@ -47,7 +47,7 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
     console.log("selectedYear: ", selectedYear);
     console.log("filteredData: ", filteredData);
     return (
-        <div className="calendar-heatmap" style={{"width":"200px", display:"flex"}}>
+        <div className="calendar-heatmap" style={{"width":"400px", "display":"flex"}}>
             <style>{inlineCSS}</style> 
             <ReactCalendarHeatmap
                 startDate={new Date(selectedYear, selectedMonth - 1, 1)}
