@@ -47,8 +47,9 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
     console.log("selectedYear: ", selectedYear);
     console.log("filteredData: ", filteredData);
     return (
-        <div className="calendar-heatmap" style={{"width":"400px", "display":"flex"}}>
+        <div className="calendar-heatmap" style={{"display":"flex"}}>
             <style>{inlineCSS}</style> 
+            <div style={{"width":"250px" }}>
             <ReactCalendarHeatmap
                 startDate={new Date(selectedYear, selectedMonth - 1, 1)}
                 endDate={new Date(selectedYear, selectedMonth, 0)}
@@ -68,9 +69,11 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
                 showWeekdayLabels={true}
                 showMonthLabels={false}
                 horizontal={false}
-            />
-            <div style={{"width":"200px"}}>
-                <h6 style={testStyle}>Selected cube</h6>
+                />
+            </div>
+            
+            <div style={{"width":"100px"}}>
+                <h5 style={testStyle}>Selected cube</h5>
                 <h6 style={testStyle}>date: {selectedDate}</h6>
                 <h6 style={testStyle}>count: {selectedCount}</h6>
             </div>
