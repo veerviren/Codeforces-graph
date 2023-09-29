@@ -31,7 +31,7 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
     console.log("filteredData: ", filteredData);
     return (
         <div className="scrollable-container">
-            <div className="calendar-heatmap" style={{ "width": "2000px", "background": "grey" }}>
+            <div className="calendar-heatmap" style={{ "width": "1000px", "background": "grey" }}>
                 <style>{inlineCSS}</style>
                 <ReactCalendarHeatmap
                     startDate={new Date(`${selectedYear}-$01-01`)}
