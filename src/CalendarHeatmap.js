@@ -43,12 +43,10 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
                         }
                         return `color-scale-${value.count < 4 ? value.count : 4}`;
                     }}
-                    showOutOfRangeDays={true}   
                     showWeekdayLabels={true}
-                    showMonthLabels={true}
-                    horizontal={true}
                 />
             </div>
+            
         </div>
 
     );
