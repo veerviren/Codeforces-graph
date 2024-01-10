@@ -1,6 +1,6 @@
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
-import Tooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 
 const CustomCalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
     const filteredData = data.filter((value) => {
@@ -45,7 +45,8 @@ const CustomCalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
                     }}
                     tooltipDataAttrs={(value) => {
                         return {
-                            "data-tip": `${value.date}\ncount: ${value.count}`,
+                            "data-tooltip-id":"my-tooltip",
+                            "data-tooltip-html":`${value.date}<br />submission: ${value.count}`
                         };
                     }}
                     showWeekdayLabels={true}
@@ -53,7 +54,7 @@ const CustomCalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
                         alert(`Clicked on value with count: ${value.count}`)
                     }
                 />
-                <Tooltip />
+                <Tooltip id="my-tooltip"/>
             </div>
         </div>
     );
