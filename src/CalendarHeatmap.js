@@ -1,13 +1,13 @@
-import ReactCalendarHeatmap from 'react-calendar-heatmap';
+import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
+import Tooltip from 'react-tooltip';
 
-const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
+const CustomCalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
     const filteredData = data.filter((value) => {
-        const dateParts = value.date.split('-'); 
+        const dateParts = value.date.split('-');
         const year = parseInt(dateParts[0], 10);
         return year == selectedYear;
     });
-
     const inlineCSS = `
         .color-empty {
             fill: #eeeeee;
@@ -33,23 +33,30 @@ const CalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
         <div className="scrollable-container">
             <div className="calendar-heatmap" style={{ "width": "1000px", "background": "grey" }}>
                 <style>{inlineCSS}</style>
-                <ReactCalendarHeatmap
+                <CalendarHeatmap
                     startDate={new Date(`${selectedYear}-$01-01`)}
                     endDate={new Date(`${selectedYear}-$12-31`)}
                     values={filteredData}
                     classForValue={(value) => {
                         if (!value) {
-                            return 'color-empty';
+                            return "color-empty";
                         }
                         return `color-scale-${value.count < 4 ? value.count : 4}`;
                     }}
+                    tooltipDataAttrs={(value) => {
+                        return {
+                            "data-tip": `${value.date}\ncount: ${value.count}`,
+                        };
+                    }}
                     showWeekdayLabels={true}
+                    onClick={(value) =>
+                        alert(`Clicked on value with count: ${value.count}`)
+                    }
                 />
+                <Tooltip />
             </div>
-            
         </div>
-
     );
 };
 
-export default CalendarHeatmap;
+export default CustomCalendarHeatmap;

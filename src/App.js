@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CalendarHeatmap from './CalendarHeatmap';
+import CustomCalendarHeatmap from './CalendarHeatmap';
 
 const App = () => {
   const [handle, setHandle] = useState("");
@@ -89,7 +89,7 @@ const App = () => {
   return (
     <div className="App" >
       <div>
-        <CalendarHeatmap
+        <CustomCalendarHeatmap
           data={submissionDataList}
           selectedMonth={selectedMonth}
           selectedYear={selectedYear}
