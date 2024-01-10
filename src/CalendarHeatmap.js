@@ -44,15 +44,22 @@ const CustomCalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
                         return `color-scale-${value.count < 4 ? value.count : 4}`;
                     }}
                     tooltipDataAttrs={(value) => {
-                        return {
-                            "data-tooltip-id":"my-tooltip",
-                            "data-tooltip-html":`${value.date}<br />submission: ${value.count}`
-                        };
+
+                        if(value.count > 0)
+                        {
+                            return {
+                                "data-tooltip-id":"my-tooltip",
+                                "data-tooltip-html":`${value.date}<br />submission: ${value.count}`
+                            };
+                        }
+                        else{
+                            return {
+                                "data-tooltip-id":"my-tooltip",
+                                "data-tooltip-html":`No submission`
+                            };
+                        }
                     }}
                     showWeekdayLabels={true}
-                    onClick={(value) =>
-                        alert(`Clicked on value with count: ${value.count}`)
-                    }
                 />
                 <Tooltip id="my-tooltip"/>
             </div>
