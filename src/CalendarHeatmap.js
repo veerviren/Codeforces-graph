@@ -24,6 +24,10 @@ const CustomCalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
         .color-scale-4 {
             fill: #1e6823;
         }
+
+        .outline-none {
+            outline: none;
+        }
     `;
 
     console.log("selectedMonth: ", selectedMonth);
@@ -39,9 +43,9 @@ const CustomCalendarHeatmap = ({ data, selectedMonth, selectedYear }) => {
                     values={filteredData}
                     classForValue={(value) => {
                         if (!value) {
-                            return "color-empty";
+                            return "color-empty outline-none";
                         }
-                        return `color-scale-${value.count < 4 ? value.count : 4}`;
+                        return `color-scale-${value.count < 4 ? value.count : 4} outline-none`;
                     }}
                     tooltipDataAttrs={(value) => {
 
